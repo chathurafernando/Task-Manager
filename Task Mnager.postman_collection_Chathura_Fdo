@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "3fdf5b4a-9b78-43b1-87b2-1fa1f1f4b4cd",
+		"name": "Task Mnager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42952226"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"chathura123\",\r\n  \"password\": \"1234\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"chathura123\",\r\n  \"password\": \"1234\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Add a Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Implement frontend UI\",\r\n  \"description\": \"Develop the user interface for the task manager using Angular.\",\r\n  \"status\": \"in-progress\",\r\n  \"createdAt\": \"2025-04-06T15:30:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/tasks/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Implement frontend UI - Updated\",\r\n  \"description\": \"Develop the user interface for the task manager using Angular (Updated version).\",\r\n  \"status\": \"completed\",\r\n  \"createdAt\": \"2025-04-06T15:30:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tasks/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjaGF0aHVyYTEyMyIsImlhdCI6MTc0NDEyMTEzMSwiZXhwIjoxNzQ0MTI0NzMxfQ.XR-RYk93jcPrtnIoMhjiK-zTHYtL-RVUqfz7CPpek2E2As2kVxqWlM6_0O5g2Biw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/tasks/34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tasks",
+								"34"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
