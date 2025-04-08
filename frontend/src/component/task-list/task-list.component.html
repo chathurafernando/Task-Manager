@@ -1,0 +1,69 @@
+<div class="container d-flex flex-column py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a routerLink="/task-form" class="btn btn-outline-primary">
+      <i class="fa fa-plus-circle me-1"></i> Add Task
+    </a>
+    
+    <h2 class="text-center flex-grow-1 mb-0 text-muted">
+      <i class="fa fa-check-square me-2"></i>Task List
+    </h2>
+
+    <button class="btn btn-outline-secondary" (click)="logout()">
+      <i class="fa fa-sign-out-alt me-1"></i> Logout
+    </button>
+  </div>
+<!-- Filter Dropdown -->
+<div class="mb-3">
+  <label for="statusFilter" class="form-label fw-bold">Filter by Status:</label>
+  <select id="statusFilter" class="form-select w-auto d-inline-block ms-2" [(ngModel)]="statusFilter">
+    <option value="">All</option>
+    <option value="TO_DO">TO_DO</option>
+    <option value="IN_PROGRESS">IN_PROGRESS</option>
+    <option value="DONE">DONE</option>
+  </select>
+</div>
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!loading && tasks.length === 0" class="alert alert-info text-center">
+    No tasks found.
+  </div>
+
+  <div *ngIf="!loading && tasks.length > 0" class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks | taskStatusFilter: statusFilter">
+
+          <td>{{ task.id }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description || '—' }}</td>
+          <td>
+            <span class="badge bg-success" *ngIf="task.status.toLowerCase() === 'completed'">Completed</span>
+            <span class="badge bg-warning text-dark" *ngIf="task.status.toLowerCase() !== 'completed'">{{ task.status }}</span>
+          </td>
+          <td>
+            <button class="btn btn-outline-warning btn-sm" (click)="editTask(task.id)">
+              <i class="fa fa-pencil-alt"></i> Edit
+            </button>
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteTask(task.id!)">
+              <i class="fa fa-trash-alt"></i> Delete
+            </button>
+            <button class="btn btn-outline-info btn-sm ms-2" (click)="viewTask(task.id)">
+              <i class="fa fa-eye"></i> View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

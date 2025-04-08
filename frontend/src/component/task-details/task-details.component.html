@@ -1,0 +1,27 @@
+<!-- Back Button aligned to top right -->
+<div class="d-flex justify-content-end mb-3">
+  <button class="btn btn-secondary" (click)="goBack()">
+    <i class="bi bi-arrow-left-circle me-2"></i>Back to Tasks
+  </button>
+</div>
+
+<!-- Task Details Card -->
+<div *ngIf="task" class="card shadow-lg p-4 rounded border-light">
+  <div class="card-body">
+    <h3 class="text-center text-muted mb-3">{{ task.title }}</h3>
+    <p class="mb-2">
+      <strong>Description:</strong>
+      <span class="text-secondary">{{ task.description || 'No description available' }}</span>
+    </p>
+    <p class="mb-3">
+      <strong>Status:</strong>
+      <span class="badge rounded-pill" [ngClass]="{
+        'bg-success': task.status.toLowerCase() === 'completed',
+        'bg-warning text-dark': task.status.toLowerCase() !== 'completed'
+      }">
+        {{ task.status }}
+      </span>
+    </p>
+    <!-- <p><strong>Due Date:</strong> {{ task.dueDate | date }}</p> -->
+  </div>
+</div>
